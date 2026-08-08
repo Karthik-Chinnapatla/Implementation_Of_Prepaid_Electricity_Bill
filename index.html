@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementation of Prepaid Electricity Billing System</title>
+    <meta
+      name="description"
+      content="Chapters for implementation of prepaid electricity billing system project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=7.0" />
+  </head>
+  <body>
+    <!-- Top Navigation Bar (Theme Adaptive Glass Look with iOS Toggle Switch & Thunder Effect) -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="nav-brand">
+          <img src="assets/logo.png" alt="Electricity Bill Logo" class="nav-logo" />
+          <span class="brand-name">Electricity Bill</span>
+        </a>
+        <div class="nav-links">
+          <a href="#chapter-1" class="nav-link" data-nav="CHAPTER 1">Chapter 1</a>
+          <a href="#chapter-2" class="nav-link" data-nav="CHAPTER 2">Chapter 2</a>
+          <a href="#chapter-3" class="nav-link" data-nav="CHAPTER 3">Chapter 3</a>
+          <a href="#chapter-4" class="nav-link" data-nav="CHAPTER 4">Chapter 4</a>
+          <a href="#chapter-5" class="nav-link" data-nav="CHAPTER 5">Chapter 5</a>
+          <a href="#chapter-6" class="nav-link" data-nav="CHAPTER 6">Chapter 6</a>
+          <a href="#chapter-7" class="nav-link" data-nav="CHAPTER 7">Chapter 7</a>
+          <a href="#chapter-8" class="nav-link" data-nav="CHAPTER 8">Chapter 8</a>
+          <a href="#conclusion" class="nav-link nav-conclusion" data-nav="CONCLUSION">Conclusion</a>
+        </div>
+        <div class="theme-switch-wrapper">
+          <span class="theme-switch-label">☀️</span>
+          <button class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Light and Dark Mode" title="Toggle Light and Dark Mode">
+            <span class="theme-switch-slider"></span>
+          </button>
+          <span class="theme-switch-label">🌙</span>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-content">
+        <h1>Implementation of Prepaid Electricity Billing System</h1>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="chapter-list">
+        <!-- CHAPTER 1 -->
+        <article class="chapter-card" id="chapter-1" data-chapter="CHAPTER 1">
+          <h2>INTRODUCTION</h2>
+          <p class="card-summary">Electricity billing is an essential part of power distribution. Traditional billing systems require manual meter reading and often lead to billing errors and electricity theft. A prepaid electricity billing system allows users to recharge electricity before consumption, providing better control and improving efficiency.</p>
+          
+          <div class="full-content" style="display: none;">
+            <h3>Introduction</h3>
+            <p>Electricity is one of the most essential resources in daily life. Traditional electricity billing systems calculate the bill after electricity has been consumed. These systems require manual meter reading and often lead to delayed payments, billing errors, and electricity theft.</p>
+            <p>A prepaid electricity billing system overcomes these problems by allowing consumers to recharge their account before using electricity. The electricity consumption is continuously monitored, and the balance is deducted accordingly. Once the available balance reaches zero, the electricity supply is disconnected until the consumer performs another recharge.</p>
+            
+            <div class="project-tag-box">
+              <span class="tag-label">In this project</span>
+              <span class="tag-desc">&lt;/&gt; Prepaid billing concepts are implemented using FPGA technology and Verilog HDL.</span>
+            </div>
+
+            <h3>Key Challenges of Traditional Billing</h3>
+            <ul>
+              <li><strong>Manual Meter Reading:</strong> High labor requirement and human error during data entry.</li>
+              <li><strong>Delayed Payments & Defaulting:</strong> Revenue collection losses for electricity distribution companies.</li>
+              <li><strong>Electricity Theft & Fraud:</strong> Tampering with postpaid meters leads to unrecorded consumption.</li>
+              <li><strong>No Real-time Visibility:</strong> Consumers cannot track daily energy expenditure or remaining budget.</li>
+            </ul>
+
+            <h3>Project Objectives</h3>
+            <ul>
+              <li><strong>Prepaid Recharging:</strong> Consumers recharge credit before consuming electricity.</li>
+              <li><strong>Continuous Monitoring:</strong> Real-time unit pulse counting and balance deduction.</li>
+              <li><strong>Automatic Disconnection:</strong> Disconnects power supply immediately when balance reaches zero.</li>
+              <li><strong>Theft Reduction:</strong> Prevents unauthorized post-usage meter tampering.</li>
+              <li><strong>Reliable FPGA Implementation:</strong> High-speed logic modeling using Verilog HDL.</li>
+            </ul>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 2 -->
+        <article class="chapter-card" id="chapter-2" data-chapter="CHAPTER 2">
+          <h2>LITERATURE SURVEY</h2>
+          <p class="card-summary">Conventional electricity billing systems depend on postpaid billing, where consumers pay after using electricity. These systems may suffer from delayed payments and inaccurate billing. The proposed prepaid system improves transparency, reduces electricity theft, and enables consumers to monitor consumption effectively.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter2-diagram.jpg" alt="Conventional Postpaid vs Proposed Prepaid System" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Existing Postpaid System</h3>
+            <p>Conventional utility billing relies on postpaid metering where consumption is recorded monthly by field technicians.</p>
+            <ul>
+              <li><strong>Delayed Payment Cycle:</strong> Consumers pay long after using electricity, increasing default risk.</li>
+              <li><strong>Manual Reader Visits:</strong> Requires human personnel for monthly physical meter readings.</li>
+              <li><strong>Inaccurate Billing:</strong> Human errors during transcription lead to customer disputes.</li>
+              <li><strong>Revenue Losses:</strong> Delayed bill payments increase operational overhead for utilities.</li>
+              <li><strong>Unmanaged Electricity Theft:</strong> Meter bypassing goes undetected between reading cycles.</li>
+            </ul>
+
+            <h3>Proposed Prepaid System</h3>
+            <p>The proposed prepaid billing architecture empowers users to purchase energy credits prior to consumption.</p>
+            <ul>
+              <li><strong>Prepaid Credit Storage:</strong> Stores and displays available credit balance digitally.</li>
+              <li><strong>Real-time Unit Deduction:</strong> Automatically deducts tariff costs per energy unit consumed.</li>
+              <li><strong>Automatic Cut-off Relay:</strong> Immediately turns OFF power supply when credit reaches zero.</li>
+              <li><strong>Instant Re-activation:</strong> Power is instantly restored upon validating a new recharge code.</li>
+            </ul>
+
+            <div class="project-tag-box">
+              <span class="tag-label">System Benefit</span>
+              <span class="tag-desc">⚡ Improves transparency, eliminates billing disputes, and promotes energy conservation.</span>
+            </div>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 3 -->
+        <article class="chapter-card" id="chapter-3" data-chapter="CHAPTER 3">
+          <h2>VLSI BASICS</h2>
+          <p class="card-summary">Very Large Scale Integration (VLSI) is the process of designing and implementing complex digital circuits on a single chip. It enables high-speed, compact, and reliable hardware systems implemented using Verilog HDL and FPGA development boards.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter3-diagram.jpg" alt="Introduction to VLSI Architecture & Flow" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Introduction to VLSI</h3>
+            <p>Very Large Scale Integration (VLSI) is the process of designing and implementing complex digital circuits on a single chip.</p>
+            <ul>
+              <li><strong>Enables High-Speed Performance:</strong> VLSI allows millions of transistors to work together, enabling faster operations.</li>
+              <li><strong>Compact and Efficient:</strong> More functionality in less space, reducing size and cost.</li>
+              <li><strong>Reliable and Low Power:</strong> Designed for high reliability and optimized power consumption.</li>
+            </ul>
+
+            <h3>VLSI Applications</h3>
+            <div class="app-icon-grid">
+              <div class="app-icon-item"><span>📱</span> Mobile Devices</div>
+              <div class="app-icon-item"><span>🚗</span> Automotive Systems</div>
+              <div class="app-icon-item"><span>📡</span> Communication</div>
+              <div class="app-icon-item"><span>✚</span> Medical Electronics</div>
+              <div class="app-icon-item"><span>📺</span> Consumer Electronics</div>
+            </div>
+
+            <div class="project-tag-box">
+              <span class="tag-label">In this project</span>
+              <span class="tag-desc">&lt;/&gt; VLSI concepts are implemented using Verilog HDL.</span>
+            </div>
+
+            <h3>Hardware Requirements</h3>
+            <ul>
+              <li><strong>FPGA Development Board:</strong> Reconfigurable hardware platform for logic prototyping.</li>
+              <li><strong>Personal Computer:</strong> Workstation running Vivado simulation suite.</li>
+              <li><strong>Power Supply:</strong> Regulated DC source for digital board components.</li>
+              <li><strong>Digital Electricity Meter:</strong> Prototype energy sensor and load relay logic.</li>
+              <li><strong>Connecting Cables:</strong> JTAG programming interface cable.</li>
+            </ul>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 4 -->
+        <article class="chapter-card" id="chapter-4" data-chapter="CHAPTER 4">
+          <h2>PROPOSED SYSTEM</h2>
+          <p class="card-summary">The proposed prepaid electricity billing system operates by deducting the user's balance according to the electricity consumed. When balance reaches zero, power supply is automatically turned off until a valid recharge code is entered.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter4-diagram.jpg" alt="Prepaid Electricity Billing System Workflow Diagram" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Working Principle</h3>
+            <p>Initially, the consumer recharges the electricity balance by entering a digital credit code.</p>
+            <p>Whenever electricity is consumed by connected household loads:</p>
+            <ol>
+              <li><strong>Unit Pulse Detection:</strong> Energy consumption pulses are counted by the digital controller.</li>
+              <li><strong>Balance Deduction:</strong> Unit cost is subtracted continuously from the stored balance.</li>
+              <li><strong>Real-time Display:</strong> Remaining balance is updated live on the display module.</li>
+              <li><strong>Threshold Checking:</strong> The control unit continuously monitors available balance.</li>
+            </ol>
+            
+            <div class="status-box">
+              <p><strong>If Remaining Balance > 0:</strong> Power Supply Relay = <span class="status-on">ON (Active)</span></p>
+              <p><strong>If Remaining Balance = 0:</strong> Power Supply Relay = <span class="status-off">OFF (Disconnected)</span></p>
+            </div>
+            
+            <p>After performing a new recharge, the power supply relay is restored automatically without manual intervention.</p>
+
+            <h3>Operational Flow Overview</h3>
+            <p>The detailed operational flowchart illustrates tariff selection, password authorization, credit balance checks, backup power activation, and automatic balance deduction.</p>
+
+            <div class="project-tag-box">
+              <span class="tag-label">Automated Safety</span>
+              <span class="tag-desc">🔒 Over-consumption protection and zero-balance power isolation.</span>
+            </div>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 5 -->
+        <article class="chapter-card" id="chapter-5" data-chapter="CHAPTER 5">
+          <h2>VERILOG HDL</h2>
+          <p class="card-summary">Verilog HDL is a hardware description language used to model digital circuits. It provides modules, data types, operators, and control statements to describe hardware functionality, simulation behavior, and FPGA implementation.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter5-diagram.jpg" alt="Verilog HDL Code & Simulation Architecture Diagram" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Verilog HDL Fundamentals</h3>
+            <ul>
+              <li><strong>Hardware Description Language:</strong> Industry standard HDL used to design, simulate, and implement digital hardware logic.</li>
+              <li><strong>Modular Architecture:</strong> Logic partitioned into distinct modules (Clock Divider, Subtractor, Relay Controller, Display Driver).</li>
+              <li><strong>Interface Ports:</strong> Inputs (Clock, Reset, Password, Recharge Code, Unit Pulse) and Outputs (Balance, Alert LEDs, Relay Cutoff).</li>
+              <li><strong>Sequential Logic:</strong> Clock-edge triggered registers (<code>always @(posedge clk)</code>) for accurate unit counting and deduction.</li>
+              <li><strong>Conditional Logic:</strong> <code>if-else</code> trees and <code>case</code> blocks for low balance warnings and automatic power cutoff.</li>
+            </ul>
+
+            <div class="project-tag-box">
+              <span class="tag-label">Verilog Feature</span>
+              <span class="tag-desc">&lt;/&gt; Register-Transfer Level (RTL) synthesized for Xilinx FPGA deployment.</span>
+            </div>
+
+            <h3>Core Hardware Modules</h3>
+            <ul>
+              <li><strong>Timing Generator:</strong> Divides high-frequency crystal oscillator to 1Hz operational clock.</li>
+              <li><strong>Tariff Subtractor:</strong> Computes cost deduction based on residential vs commercial tariff rates.</li>
+              <li><strong>Cutoff Controller:</strong> Manages relay driver signals for instant power isolation.</li>
+            </ul>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 6 -->
+        <article class="chapter-card" id="chapter-6" data-chapter="CHAPTER 6">
+          <h2>SOFTWARE IMPLEMENTATION</h2>
+          <p class="card-summary">The project is implemented using Xilinx Vivado Design Suite. The implementation process includes project creation, Verilog coding, constraints creation, simulation, synthesis, RTL schematic generation, and FPGA bitstream programming.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter6-diagram.jpg" alt="Software Implementation Xilinx Vivado Workflow" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Software Environment</h3>
+            <ul>
+              <li><strong>Xilinx Vivado Design Suite:</strong> Complete EDA environment for synthesis, simulation, and bitstream generation.</li>
+              <li><strong>ModelSim Simulator:</strong> Behavioral waveform inspection and testbench execution.</li>
+              <li><strong>XDC Constraints:</strong> Physical pin mapping for FPGA I/O headers and status LEDs.</li>
+            </ul>
+
+            <h3>8-Step Design Flow</h3>
+            <div class="flow-steps">
+              <span>1. Project Creation</span> &rarr;
+              <span>2. Verilog Coding</span> &rarr;
+              <span>3. Behavioral Simulation</span> &rarr;
+              <span>4. RTL Synthesis</span> &rarr;
+              <span>5. Implementation</span> &rarr;
+              <span>6. RTL Schematic</span> &rarr;
+              <span>7. Technology Schematic</span> &rarr;
+              <span>8. Bitstream Verification</span>
+            </div>
+
+            <h3>Implementation Steps</h3>
+            <ol>
+              <li>Create new Vivado project targetting Xilinx FPGA.</li>
+              <li>Add Verilog HDL source modules (`prepaid_billing.v`).</li>
+              <li>Develop comprehensive testbench file (`tb_prepaid_billing.v`).</li>
+              <li>Define physical constraints file (`constraints.xdc`).</li>
+              <li>Execute behavioral simulation and inspect waveform outputs.</li>
+              <li>Run RTL Synthesis to map Verilog gates.</li>
+              <li>Execute Place & Route Implementation.</li>
+              <li>Generate RTL and Technology schematics.</li>
+              <li>Program FPGA hardware bitstream via JTAG cable.</li>
+            </ol>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 7 -->
+        <article class="chapter-card" id="chapter-7" data-chapter="CHAPTER 7">
+          <h2>RESULTS</h2>
+          <p class="card-summary">The proposed prepaid electricity billing system was successfully simulated and implemented using Vivado. Behavioral simulation, RTL schematics, technology schematics, and simulation waveforms confirmed correct balance calculation and power control.</p>
+          
+          <div class="card-media">
+            <img src="assets/chapter7-diagram.jpg" alt="Results Waveforms and Test Scenario Summary" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>Behavioral Simulation Waveforms</h3>
+            <p>Behavioral simulation verifies that Verilog logic executes expected billing calculations prior to physical hardware implementation.</p>
+            <ul>
+              <li><strong>Recharge Credit Verification:</strong> Balance increments accurately upon entering recharge code.</li>
+              <li><strong>Unit Deduction Test:</strong> Balance decrements step-by-step as unit pulses arrive.</li>
+              <li><strong>Zero Balance Cut-off:</strong> Output relay signal switches from HIGH to LOW instantly when balance reaching zero.</li>
+              <li><strong>Tariff Rate Switching:</strong> Verified Tariff 1 (Residential) and Tariff 2 (Commercial) multiplier logic.</li>
+            </ul>
+
+            <h3>RTL & Technology Schematic Reports</h3>
+            <p>Synthesis tools generated accurate logic schematics confirming hardware mapping:</p>
+            <ul>
+              <li><strong>RTL Schematic:</strong> Visual gate-level representation of counters, registers, and comparators.</li>
+              <li><strong>Technology Schematic:</strong> Resource allocation showing Look-Up Tables (LUTs), Flip-Flops, and I/O Buffers.</li>
+            </ul>
+
+            <div class="project-tag-box">
+              <span class="tag-label">Verification Result</span>
+              <span class="tag-desc">✅ 100% functional accuracy confirmed across all test scenarios.</span>
+            </div>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter & diagram</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- FLOWCHART CARD -->
+        <article class="chapter-card flowchart-card" id="flowchart" data-chapter="FLOWCHART">
+          <h2>FLOW CHART FOR ELECTRICITY PREPAID BILL</h2>
+          <p class="card-summary">The system flowchart illustrates the operational logic from tariff selection to balance checking, backup activation, code recharge, unit counting, and automatic deduction.</p>
+          
+          <div class="card-media">
+            <img src="assets/flowchart-diagram.png" alt="Flowchart for Electricity Prepaid Bill" class="card-img-preview" />
+          </div>
+
+          <div class="full-content" style="display: none;">
+            <h3>System Flowchart Description</h3>
+            <p>The system flowchart details the step-by-step decision matrix executed by the prepaid electricity bill controller:</p>
+            <ul>
+              <li><strong>1. System Initialization:</strong> Prompts setup configuration for Tariff 1 (Residential) or Tariff 2 (Commercial).</li>
+              <li><strong>2. Authentication & Password:</strong> Installs password-protected access to prevent unauthorized parameter overrides.</li>
+              <li><strong>3. Credit Verification:</strong> Evaluates stored credit balance. If balance > 0, main power relay remains engaged.</li>
+              <li><strong>4. Backup Power Mode:</strong> If balance reaches zero, system alerts user and offers limited emergency backup power window.</li>
+              <li><strong>5. Recharge Validation:</strong> Accepts digital recharge pin, validates format, adds credit to total, and re-engages main relay.</li>
+              <li><strong>6. Continuous Deduction Loop:</strong> Monitors energy pulses, deducts unit cost, updates live LCD display, and loops back.</li>
+            </ul>
+
+            <div class="project-tag-box">
+              <span class="tag-label">Flow Logic</span>
+              <span class="tag-desc">🔄 Fail-safe state machine guarantees power isolation on zero balance.</span>
+            </div>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full flowchart</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- CHAPTER 8 -->
+        <article class="chapter-card" id="chapter-8" data-chapter="CHAPTER 8">
+          <h2>ADVANTAGES</h2>
+          <p class="card-summary">The prepaid electricity billing system provides several advantages, including accurate billing, reduced electricity theft, automatic balance monitoring, improved energy management, and versatile applications across smart homes and smart cities.</p>
+          
+          <div class="full-content" style="display: none;">
+            <h3>Key System Advantages</h3>
+            <ul>
+              <li><strong>Eliminates Manual Billing:</strong> Removes physical meter reader visits and administrative bill processing costs.</li>
+              <li><strong>Prevents Billing Errors:</strong> Digital pulse counting guarantees exact billing based strictly on consumed energy.</li>
+              <li><strong>Reduces Electricity Theft:</strong> Zero-balance auto-cutoff relay prevents unauthorized post-consumption energy usage.</li>
+              <li><strong>Promotes Energy Conservation:</strong> Real-time balance visibility encourages consumers to optimize power consumption.</li>
+              <li><strong>High Speed & Reliability:</strong> FPGA hardware implementation provides sub-microsecond processing and high noise immunity.</li>
+            </ul>
+
+            <h3>Application Sectors</h3>
+            <div class="app-icon-grid">
+              <div class="app-icon-item"><span>🏠</span> Residential Buildings</div>
+              <div class="app-icon-item"><span>🏢</span> Commercial Malls</div>
+              <div class="app-icon-item"><span>🏬</span> Rental Properties</div>
+              <div class="app-icon-item"><span>🏭</span> Industrial Complexes</div>
+              <div class="app-icon-item"><span>⚡</span> Utility Grid Operators</div>
+              <div class="app-icon-item"><span>🌐</span> Smart Cities</div>
+            </div>
+
+            <h3>Future Enhancements</h3>
+            <ul>
+              <li><strong>GSM SMS Alerts:</strong> Automated SMS notifications when balance drops below 15%.</li>
+              <li><strong>IoT Cloud Dashboard:</strong> Real-time web and mobile application monitoring via Wi-Fi/LoRaWAN.</li>
+              <li><strong>Online Mobile Recharge:</strong> Instant top-ups via mobile banking and UPI payment gateways.</li>
+              <li><strong>AI Usage Analytics:</strong> Predictive algorithms to forecast upcoming monthly electricity bills.</li>
+            </ul>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <!-- Meter Simulation Videos Section (Placed After Chapter 8) -->
+        <section class="video-comparison-section" id="simulations">
+          <div class="section-header">
+            <h2>REPLACEMENT OF CONVENTIONAL METERS BY PROPOSED PREPAID METERS</h2>
+            <p>Demonstration of existing conventional meters being upgraded and replaced by smart proposed prepaid energy meters.</p>
+          </div>
+          <div class="video-grid">
+            <div class="video-card existing-card">
+              <div class="video-card-header">
+                <span class="video-badge existing-badge">EXISTING METER</span>
+                <h3>Conventional Energy Meter</h3>
+              </div>
+              <div class="video-container">
+                <video id="video-existing" src="assets/existing-meter.mp4" muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+            <div class="video-card proposed-card">
+              <div class="video-card-header">
+                <span class="video-badge proposed-badge">PROPOSED METER</span>
+                <h3>Proposed Prepaid Energy Meter</h3>
+              </div>
+              <div class="video-container">
+                <video id="video-proposed" src="assets/proposed-meter.mp4" muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONCLUSION CARD -->
+        <article class="chapter-card conclusion-card" id="conclusion" data-chapter="CONCLUSION">
+          <h2>CONCLUSION</h2>
+          <p class="card-summary">The implementation of the prepaid electricity billing system using Verilog HDL demonstrates an efficient and reliable approach to electricity management. The system ensures accurate billing, promotes responsible energy usage, and reduces revenue loss.</p>
+          
+          <div class="full-content" style="display: none;">
+            <h3>Conclusion</h3>
+            <p>The implementation of the prepaid electricity billing system using Verilog HDL demonstrates an efficient, automated, and highly reliable solution for modern electrical energy management.</p>
+            <p>By shifting from conventional postpaid metering to an FPGA-based prepaid framework, utility companies eliminate default risks and manual meter reading expenses, while consumers gain full control over their energy expenditure.</p>
+
+            <div class="project-tag-box">
+              <span class="tag-label">Final Outcome</span>
+              <span class="tag-desc">🏆 Successfully verified via Vivado simulation, synthesis, and hardware schematic analysis.</span>
+            </div>
+
+            <h3>Key Project Outcomes</h3>
+            <ul>
+              <li><strong>Proven Reliability:</strong> Subtractor logic and cutoff relay control operated without error under all test vectors.</li>
+              <li><strong>Fraud Prevention:</strong> Immediate automatic relay isolation on zero credit prevents unbilled consumption.</li>
+              <li><strong>Scalable Architecture:</strong> Reconfigurable FPGA platform easily integrates with future IoT smart grid infrastructure.</li>
+            </ul>
+          </div>
+
+          <div class="chapter-card-footer">
+            <span>Click to view full chapter</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <p>© Implementation of Prepaid Electricity Billing System</p>
+      </div>
+    </footer>
+
+    <!-- Modal Popup for Full Chapter View -->
+    <div id="chapter-modal" class="modal" aria-hidden="true">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      
+      <!-- Side Navigation Arrow Buttons (< and >) -->
+      <button class="modal-nav-btn modal-nav-prev" id="modal-nav-prev" title="Previous Chapter (←)" aria-label="Previous Chapter">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="modal-nav-btn modal-nav-next" id="modal-nav-next" title="Next Chapter (→)" aria-label="Next Chapter">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header-info">
+            <span class="modal-badge" id="modal-badge">CHAPTER</span>
+          </div>
+          <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+        </div>
+        
+        <h2 class="modal-title" id="modal-title">Chapter Title</h2>
+
+        <!-- Split 2-Column Grid Layout: Left Matter (Scrollable), Right Picture (Fixed with Zoom) -->
+        <div class="modal-grid" id="modal-grid">
+          <div class="modal-body" id="modal-body">Chapter content...</div>
+          
+          <div class="modal-media-wrapper" id="modal-media-wrapper">
+            <div class="modal-media-header">
+              <div class="zoom-controls">
+                <button class="zoom-btn zoom-out" id="zoom-out" title="Zoom Out (-)" aria-label="Zoom Out">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/></svg>
+                </button>
+                <span class="zoom-level" id="zoom-level">100%</span>
+                <button class="zoom-btn zoom-in" id="zoom-in" title="Zoom In (+)" aria-label="Zoom In">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+                <button class="zoom-btn zoom-reset" id="zoom-reset" title="Reset Zoom (100%)" aria-label="Reset Zoom">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="zoom-viewport" id="zoom-viewport">
+              <div class="modal-media" id="modal-media"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Theme Switcher Logic with Toggle Button
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        function setTheme(theme) {
+          html.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          themeToggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+        }
+
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setTheme(newTheme);
+        });
+
+        // Thunder Active Nav Chapter Tracking
+        const navbar = document.querySelector('.navbar');
+        const chapterCards = document.querySelectorAll('.chapter-card');
+        const chapterCardsArray = Array.from(chapterCards);
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Create Thunder Indicator Line
+        const thunderLine = document.createElement('div');
+        thunderLine.className = 'navbar-thunder-line';
+        navbar.appendChild(thunderLine);
+
+        function positionThunderLine(activeLink) {
+          if (!activeLink) {
+            thunderLine.style.width = '0px';
+            return;
+          }
+          const linkRect = activeLink.getBoundingClientRect();
+          const navRect = navbar.getBoundingClientRect();
+          thunderLine.style.left = `${linkRect.left - navRect.left}px`;
+          thunderLine.style.width = `${linkRect.width}px`;
+        }
+
+        function updateActiveChapterNav() {
+          let currentActive = '';
+          const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+          chapterCards.forEach((card) => {
+            const top = card.offsetTop;
+            const height = card.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+              currentActive = card.getAttribute('data-chapter');
+            }
+          });
+
+          let foundActive = null;
+          navLinks.forEach((link) => {
+            if (link.getAttribute('data-nav') === currentActive) {
+              link.classList.add('active');
+              foundActive = link;
+            } else {
+              link.classList.remove('active');
+            }
+          });
+
+          positionThunderLine(foundActive);
+        }
+
+        window.addEventListener('scroll', updateActiveChapterNav, { passive: true });
+        window.addEventListener('resize', updateActiveChapterNav);
+        updateActiveChapterNav();
+
+        // Video Scroll Observer, 2-second Delay & Speed Controls
+        const videoSection = document.getElementById('simulations');
+        const video1 = document.getElementById('video-existing');
+        const video2 = document.getElementById('video-proposed');
+        let videoPlayed = false;
+
+        if (videoSection && video1 && video2) {
+          video1.addEventListener('timeupdate', () => {
+            if (video1.duration) {
+              if (video1.currentTime >= video1.duration - 2) {
+                video1.playbackRate = 0.5;
+              } else {
+                video1.playbackRate = 1.0;
+              }
+            }
+          });
+
+          video2.addEventListener('timeupdate', () => {
+            if (video2.duration) {
+              if (video2.currentTime >= video2.duration - 1) {
+                video2.playbackRate = 0.75;
+              } else {
+                video2.playbackRate = 1.0;
+              }
+            }
+          });
+
+          const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (!videoPlayed) {
+                  videoPlayed = true;
+                  video1.play().catch(err => console.log('Video 1 play error:', err));
+                  setTimeout(() => {
+                    video2.play().catch(err => console.log('Video 2 play error:', err));
+                  }, 2000);
+                }
+              } else {
+                video1.pause();
+                video2.pause();
+                videoPlayed = false;
+              }
+            });
+          }, { threshold: 0.25 });
+
+          videoObserver.observe(videoSection);
+        }
+
+        // Modal Elements & Navigation
+        const modal = document.getElementById('chapter-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const modalNavPrev = document.getElementById('modal-nav-prev');
+        const modalNavNext = document.getElementById('modal-nav-next');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalCounter = document.getElementById('modal-counter');
+        const modalTitle = document.getElementById('modal-title');
+        const modalGrid = document.getElementById('modal-grid');
+        const modalBody = document.getElementById('modal-body');
+        const modalMediaWrapper = document.getElementById('modal-media-wrapper');
+        const modalMedia = document.getElementById('modal-media');
+
+        // Zoom Controls Elements
+        const zoomInBtn = document.getElementById('zoom-in');
+        const zoomOutBtn = document.getElementById('zoom-out');
+        const zoomResetBtn = document.getElementById('zoom-reset');
+        const zoomLevelText = document.getElementById('zoom-level');
+        const zoomViewport = document.getElementById('zoom-viewport');
+
+        let currentChapterIndex = 0;
+        let currentZoom = 1.0;
+
+        function applyZoom(zoom) {
+          currentZoom = Math.min(Math.max(zoom, 1.0), 3.5);
+          if (zoomLevelText) zoomLevelText.innerText = `${Math.round(currentZoom * 100)}%`;
+          const img = modalMedia.querySelector('img');
+          if (img) {
+            img.style.transform = `scale(${currentZoom})`;
+          }
+        }
+
+        function resetZoom() {
+          currentZoom = 1.0;
+          if (zoomLevelText) zoomLevelText.innerText = '100%';
+          const img = modalMedia.querySelector('img');
+          if (img) img.style.transform = 'scale(1)';
+        }
+
+        if (zoomInBtn) {
+          zoomInBtn.addEventListener('click', () => applyZoom(currentZoom + 0.25));
+        }
+        if (zoomOutBtn) {
+          zoomOutBtn.addEventListener('click', () => applyZoom(currentZoom - 0.25));
+        }
+        if (zoomResetBtn) {
+          zoomResetBtn.addEventListener('click', resetZoom);
+        }
+
+        if (zoomViewport) {
+          zoomViewport.addEventListener('wheel', (e) => {
+            if (!modalMedia.querySelector('img')) return;
+            e.preventDefault();
+            if (e.deltaY < 0) {
+              applyZoom(currentZoom + 0.15);
+            } else {
+              applyZoom(currentZoom - 0.15);
+            }
+          }, { passive: false });
+        }
+
+        function openChapterModalByIndex(index) {
+          if (index < 0 || index >= chapterCardsArray.length) return;
+          currentChapterIndex = index;
+          resetZoom();
+
+          const card = chapterCardsArray[index];
+          const chapterTag = card.getAttribute('data-chapter') || 'CHAPTER';
+          const titleText = card.querySelector('h2').innerText;
+          const fullContent = card.querySelector('.full-content');
+          const cardMedia = card.querySelector('.card-media');
+
+          modalBadge.innerText = chapterTag;
+          modalTitle.innerText = titleText;
+
+          if (fullContent) {
+            modalBody.innerHTML = fullContent.innerHTML;
+          } else {
+            modalBody.innerText = card.querySelector('p').innerText;
+          }
+
+          modalMedia.innerHTML = '';
+          if (cardMedia) {
+            modalGrid.classList.remove('no-media');
+            modalMediaWrapper.style.display = 'flex';
+            const imgClone = cardMedia.querySelector('img').cloneNode(true);
+            modalMedia.appendChild(imgClone);
+          } else {
+            modalGrid.classList.add('no-media');
+            modalMediaWrapper.style.display = 'none';
+          }
+
+          // Toggle Side Arrow visibility
+          if (index === 0) {
+            modalNavPrev.classList.add('hidden');
+          } else {
+            modalNavPrev.classList.remove('hidden');
+          }
+
+          if (index === chapterCardsArray.length - 1) {
+            modalNavNext.classList.add('hidden');
+          } else {
+            modalNavNext.classList.remove('hidden');
+          }
+
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+
+          // Sync top navbar active state
+          navLinks.forEach(link => {
+            if (link.getAttribute('data-nav') === chapterTag) {
+              link.classList.add('active');
+              positionThunderLine(link);
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+
+        // Side Arrow Navigation Handlers
+        if (modalNavPrev) {
+          modalNavPrev.addEventListener('click', () => {
+            if (currentChapterIndex > 0) openChapterModalByIndex(currentChapterIndex - 1);
+          });
+        }
+
+        if (modalNavNext) {
+          modalNavNext.addEventListener('click', () => {
+            if (currentChapterIndex < chapterCardsArray.length - 1) openChapterModalByIndex(currentChapterIndex + 1);
+          });
+        }
+
+        // Card Clicks
+        chapterCardsArray.forEach((card, index) => {
+          card.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'BUTTON' || e.target.tagName === 'VIDEO') return;
+            openChapterModalByIndex(index);
+          });
+        });
+
+        // Top Navbar Links Clicks
+        navLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const targetTag = link.getAttribute('data-nav');
+            if (targetTag) {
+              const cardIndex = chapterCardsArray.findIndex(c => c.getAttribute('data-chapter') === targetTag);
+              if (cardIndex !== -1) {
+                chapterCardsArray[cardIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                openChapterModalByIndex(cardIndex);
+              }
+            }
+          });
+        });
+
+        function closeModal() {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          modalMedia.innerHTML = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+          if (!modal.classList.contains('active')) return;
+          if (e.key === 'Escape') {
+            closeModal();
+          } else if (e.key === 'ArrowLeft' && currentChapterIndex > 0) {
+            openChapterModalByIndex(currentChapterIndex - 1);
+          } else if (e.key === 'ArrowRight' && currentChapterIndex < chapterCardsArray.length - 1) {
+            openChapterModalByIndex(currentChapterIndex + 1);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

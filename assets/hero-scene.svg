@@ -1,0 +1,64 @@
+<svg width="1400" height="700" viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="meterGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1400" height="700" rx="32" fill="url(#bgLight)"/>
+  <g opacity="0.8">
+    <circle cx="300" cy="160" r="90" fill="#fef3c7"/>
+    <path d="M250 140c20-50 80-70 120-40" stroke="#fde68a" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M270 170c30-40 20-90 60-104" stroke="#fde68a" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <circle cx="300" cy="170" r="12" fill="#f59e0b"/>
+  </g>
+  <g transform="translate(500 120)">
+    <rect x="0" y="80" width="420" height="360" rx="40" fill="url(#meterGrad)"/>
+    <rect x="24" y="110" width="372" height="260" rx="28" fill="#fff"/>
+    <rect x="52" y="144" width="130" height="72" rx="20" fill="#e2e8f0"/>
+    <rect x="206" y="144" width="110" height="72" rx="20" fill="#93c5fd"/>
+    <rect x="52" y="240" width="264" height="28" rx="14" fill="#dbeafe"/>
+    <rect x="52" y="288" width="312" height="16" rx="8" fill="#e2e8f0"/>
+    <rect x="52" y="326" width="192" height="16" rx="8" fill="#e2e8f0"/>
+    <circle cx="310" cy="104" r="24" fill="#f8fafc"/>
+    <text x="270" y="60" fill="#0f172a" font-size="28" font-weight="700">00001</text>
+  </g>
+  <g transform="translate(980 170)">
+    <rect x="0" y="0" width="200" height="300" rx="28" fill="#ffffff"/>
+    <path d="M24 72h152" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 120h110" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 180h152" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 240h110" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+    <text x="24" y="44" fill="#1d4ed8" font-size="24" font-weight="700">BILL</text>
+    <rect x="24" y="264" width="152" height="16" rx="8" fill="#93c5fd"/>
+  </g>
+  <g transform="translate(40 340)">
+    <path d="M220 92c0-40 28-72 62-72s62 32 62 72v94H220V92Z" fill="#fff" stroke="#94a3b8" stroke-width="4"/>
+    <circle cx="72" cy="60" r="60" fill="#2563eb"/>
+    <path d="M36 72h72" stroke="#eff6ff" stroke-width="10" stroke-linecap="round"/>
+    <path d="M72 30v72" stroke="#eff6ff" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(90 320)">
+    <path d="M72 0c38 0 72 32 72 72s-34 72-72 72-72-32-72-72 34-72 72-72Z" fill="#fff"/>
+    <path d="M40 110c20-14 30-24 52-24" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(170 300)">
+    <rect x="0" y="0" width="196" height="312" rx="40" fill="#1e293b"/>
+    <path d="M44 120c0-18 14-32 32-32s32 14 32 32v60H44v-60Z" fill="#fff"/>
+    <rect x="70" y="216" width="56" height="40" rx="20" fill="#bfdbfe"/>
+  </g>
+  <g transform="translate(1150 370)">
+    <path d="M44 0h108l28 228H16L44 0Z" fill="#183b82"/>
+    <rect x="16" y="208" width="120" height="16" rx="8" fill="#93c5fd"/>
+    <path d="M28 160c36 16 64 16 106 0" stroke="#bfdbfe" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(120 480)">
+    <rect x="0" y="0" width="320" height="180" rx="28" fill="#fff" stroke="#e2e8f0" stroke-width="4"/>
+    <text x="20" y="45" fill="#0f172a" font-size="28" font-weight="700">TOTAL</text>
+    <path d="M24 94h142" stroke="#93c5fd" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
