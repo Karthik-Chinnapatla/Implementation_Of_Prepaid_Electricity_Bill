@@ -5,13 +5,7 @@
 ---
 
 ## 📌 Overview
-An interactive web dashboard and simulation platform for an FPGA-based prepaid electricity billing system. The system monitors electricity usage, deducts balance based on real-time consumption, and automatically disconnects power when the balance reaches zero.
-
-## 🚀 Features
-- **Real-Time Monitoring**: Live dashboard showing units consumed, remaining balance, and power status.
-- **Instant Recharge**: Interactive portal to recharge electricity balance.
-- **Analytics & History**: Graphs and logs tracking electricity consumption over time.
-- **Hardware Integration Simulation**: Verilog HDL logic simulation representation.
+FPGA-based prepaid electricity billing system implemented using Verilog HDL and Xilinx Vivado. The system monitors electricity usage, deducts balance based on consumption, and automatically disconnects power when the balance reaches zero. Includes simulation, synthesis, RTL schematic, and implementation results.
 
 ---
 
