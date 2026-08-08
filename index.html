@@ -11,11 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=7.0" />
+    <link rel="stylesheet" href="styles.css?v=8.0" />
   </head>
   <body>
     <!-- Top Navigation Bar (Theme Adaptive Glass Look with iOS Toggle Switch & Thunder Effect) -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="navbar-container">
         <a href="#" class="nav-brand">
           <img src="assets/logo.png" alt="Electricity Bill Logo" class="nav-logo" />
@@ -32,12 +32,34 @@
           <a href="#chapter-8" class="nav-link" data-nav="CHAPTER 8">Chapter 8</a>
           <a href="#conclusion" class="nav-link nav-conclusion" data-nav="CONCLUSION">Conclusion</a>
         </div>
-        <div class="theme-switch-wrapper">
-          <span class="theme-switch-label">☀️</span>
-          <button class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Light and Dark Mode" title="Toggle Light and Dark Mode">
-            <span class="theme-switch-slider"></span>
+        <div class="nav-actions">
+          <div class="theme-switch-wrapper">
+            <span class="theme-switch-label">☀️</span>
+            <button class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Light and Dark Mode" title="Toggle Light and Dark Mode">
+              <span class="theme-switch-slider"></span>
+            </button>
+            <span class="theme-switch-label">🌙</span>
+          </div>
+          <button class="mobile-menu-toggle stairs-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" title="Menu">
+            <svg class="stairs-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+              <line x1="11" y1="5.5" x2="21" y2="5.5" class="stair-line stair-1" />
+              <line x1="7" y1="12" x2="17" y2="12" class="stair-line stair-2" />
+              <line x1="3" y1="18.5" x2="13" y2="18.5" class="stair-line stair-3" />
+            </svg>
           </button>
-          <span class="theme-switch-label">🌙</span>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-links">
+          <a href="#chapter-1" class="mobile-nav-link" data-nav="CHAPTER 1">Chapter 1</a>
+          <a href="#chapter-2" class="mobile-nav-link" data-nav="CHAPTER 2">Chapter 2</a>
+          <a href="#chapter-3" class="mobile-nav-link" data-nav="CHAPTER 3">Chapter 3</a>
+          <a href="#chapter-4" class="mobile-nav-link" data-nav="CHAPTER 4">Chapter 4</a>
+          <a href="#chapter-5" class="mobile-nav-link" data-nav="CHAPTER 5">Chapter 5</a>
+          <a href="#chapter-6" class="mobile-nav-link" data-nav="CHAPTER 6">Chapter 6</a>
+          <a href="#chapter-7" class="mobile-nav-link" data-nav="CHAPTER 7">Chapter 7</a>
+          <a href="#chapter-8" class="mobile-nav-link" data-nav="CHAPTER 8">Chapter 8</a>
+          <a href="#conclusion" class="mobile-nav-link nav-conclusion" data-nav="CONCLUSION">Conclusion</a>
         </div>
       </div>
     </nav>
@@ -554,19 +576,40 @@
           setTheme(newTheme);
         });
 
-        // Thunder Active Nav Chapter Tracking
-        const navbar = document.querySelector('.navbar');
+        // Mobile Menu Toggle & Navigation
+        const navbar = document.getElementById('navbar');
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
         const chapterCards = document.querySelectorAll('.chapter-card');
         const chapterCardsArray = Array.from(chapterCards);
         const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-        // Create Thunder Indicator Line
+        if (mobileMenuToggle && navbar) {
+          mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navbar.classList.toggle('menu-open');
+            mobileMenuToggle.classList.toggle('active', isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+
+          document.addEventListener('click', (e) => {
+            if (navbar.classList.contains('menu-open') && !navbar.contains(e.target)) {
+              navbar.classList.remove('menu-open');
+              mobileMenuToggle.classList.remove('active');
+              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        // Create Thunder Indicator Line (for desktop)
         const thunderLine = document.createElement('div');
         thunderLine.className = 'navbar-thunder-line';
         navbar.appendChild(thunderLine);
 
         function positionThunderLine(activeLink) {
-          if (!activeLink) {
+          if (!activeLink || window.innerWidth <= 900) {
             thunderLine.style.width = '0px';
             return;
           }
@@ -589,10 +632,12 @@
           });
 
           let foundActive = null;
-          navLinks.forEach((link) => {
+          allNavLinks.forEach((link) => {
             if (link.getAttribute('data-nav') === currentActive) {
               link.classList.add('active');
-              foundActive = link;
+              if (link.classList.contains('nav-link')) {
+                foundActive = link;
+              }
             } else {
               link.classList.remove('active');
             }
@@ -764,10 +809,10 @@
           document.body.style.overflow = 'hidden';
 
           // Sync top navbar active state
-          navLinks.forEach(link => {
+          allNavLinks.forEach(link => {
             if (link.getAttribute('data-nav') === chapterTag) {
               link.classList.add('active');
-              positionThunderLine(link);
+              if (link.classList.contains('nav-link')) positionThunderLine(link);
             } else {
               link.classList.remove('active');
             }
@@ -795,11 +840,19 @@
           });
         });
 
-        // Top Navbar Links Clicks
-        navLinks.forEach(link => {
+        // Navigation Links Clicks (Desktop & Mobile)
+        allNavLinks.forEach(link => {
           link.addEventListener('click', (e) => {
             const targetTag = link.getAttribute('data-nav');
             if (targetTag) {
+              // Close mobile menu if open
+              if (navbar && navbar.classList.contains('menu-open')) {
+                navbar.classList.remove('menu-open');
+                if (mobileMenuToggle) {
+                  mobileMenuToggle.classList.remove('active');
+                  mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }
+              }
               const cardIndex = chapterCardsArray.findIndex(c => c.getAttribute('data-chapter') === targetTag);
               if (cardIndex !== -1) {
                 chapterCardsArray[cardIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
