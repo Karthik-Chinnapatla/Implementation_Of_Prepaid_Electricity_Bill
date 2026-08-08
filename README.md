@@ -1,6 +1,6 @@
 # Implementation of Prepaid Electricity Bill System
 
-⚡ **Live Demo**:[https://implementation-of-prepaid-electricity-bill.vercel.app](https://implementation-of-prepaid-electrici.vercel.app/))
+⚡ **Live Demo**:[https://implementation-of-prepaid-electricity-bill.vercel.app](https://implementation-of-prepaid-electrici.vercel.app/)
 
 ---
 
