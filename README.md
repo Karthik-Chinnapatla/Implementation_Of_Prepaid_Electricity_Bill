@@ -10,5 +10,5 @@ FPGA-based prepaid electricity billing system implemented using Verilog HDL and 
 ---
 
 ## 🌐 Deployment
-This project is live and hosted on Vercel:
+This chapters are live and hosted on Vercel:
 - **Production URL**: https://implementation-of-prepaid-electrici.vercel.app/
