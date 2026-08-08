@@ -1,6 +1,6 @@
 # Implementation of Prepaid Electricity Bill System
 
-⚡ **Live Demo**: [https://implementation-of-prepaid-electricity-bill.vercel.app](https://implementation-of-prepaid-electricity-bill.vercel.app)
+⚡ **Live Demo**:[https://implementation-of-prepaid-electricity-bill.vercel.app](https://implementation-of-prepaid-electrici.vercel.app/))
 
 ---
 
@@ -17,4 +17,4 @@ An interactive web dashboard and simulation platform for an FPGA-based prepaid e
 
 ## 🌐 Deployment
 This project is live and hosted on Vercel:
-- **Production URL**: [https://implementation-of-prepaid-electricity-bill.vercel.app](https://implementation-of-prepaid-electricity-bill.vercel.app)
+- **Production URL**: https://implementation-of-prepaid-electrici.vercel.app/
